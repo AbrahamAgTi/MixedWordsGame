@@ -10,21 +10,31 @@
     <div class="box-container">
         <h2>Word mixed</h2>
         <div class = "content">
-            <p class ="word"> Example </p>
-            <div class="info">
-                <p class = "hint"> Hint: <span></span></p>    
-                <p class = "timer"> Countdown: <span>30</span></p>
-                
+            <div id="menu-container">
+              <div>
+                <button id="start-btn" class="Enter">Enter</button>
+              </div>
             </div>
-            <input type ="text" placeholder = "Enter a word">
-            <div>
-                <button class="Enter">Enter</button>
+            <div id="game-container" style="display: none;">
+                <p class ="word" id="word"></p>
+                <div class="info">
+                    <p class = "hint"> Hint: <span></span></p>    
+                    <p class = "timer"> Countdown: <span id="time">30</span></p>
+                    
+                </div>
+                <input id="user-input" type ="text" placeholder = "Enter a word">
             </div>
+
+            
         </div>
     </div>
     
     <script src="./src/words.js"></script>
     <script src="./src/script.js"></script>
+    <script>
+        const game = new MixedGame(words);
+
+    </script>
     
 </body>
 </html>
