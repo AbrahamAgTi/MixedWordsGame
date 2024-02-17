@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mixed Words Game</title>
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="box-container">
@@ -12,7 +15,7 @@
         <div class = "content">
             <div id="menu-container">
               <div>
-                <button id="start-btn" class="Enter">Enter</button>
+                <button id="start-btn" class="button-30">Enter</button>
               </div>
             </div>
             <div id="game-container" style="display: none;">
@@ -20,21 +23,24 @@
                 <div class="info">
                     <p class = "hint"> Hint: <span></span></p>    
                     <p class = "timer"> Countdown: <span id="time">30</span></p>
-                    
                 </div>
                 <input id="user-input" type ="text" placeholder = "Enter a word">
-            </div>
-
-            
+                    <div>
+                        <button id="reset"> Reset </button>
+                        <button id="main"> Back </button>
+                        
+                    </div>
+                    <div>
+                        <p class="score">Score <span></span></p>
+                    </div>
+            </div>         
         </div>
-    </div>
-    
+    </div>   
     <script src="./src/words.js"></script>
     <script src="./src/script.js"></script>
     <script>
         const game = new MixedGame(words);
-
-    </script>
-    
+    </script>  
 </body>
 </html>
+

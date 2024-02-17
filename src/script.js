@@ -1,25 +1,41 @@
 
 class MixedGame {
     constructor(words){ 
-        this.secondsPerWord = 30;
+        this.secondsPerWord = 5;
         this.remainingSeconds = this.secondsPerWord;
+        this.score = 0;
         this.isCountdownStarted = false;
         this.timeInterval = null;
         this.word = {word: '', hint: ''};
         this.wordsList = words;
 
         this.startButton = document.getElementById('start-btn');
+        this.resetButton = document.getElementById('reset')
         this.wordElement = document.getElementById('word');
+        this.hintElement = document.querySelector('.hint span')
         this.userInput = document.getElementById('user-input');
         this.menuContainer = document.getElementById('menu-container');
         this.gameContainer = document.getElementById('game-container');
         this.timeElement = document.getElementById('time');
+        this.scoreElement = document.getElementsByClassName('score')[0]
+        this.backButton = document.getElementById('main')
 
+    
         // Add listener to start button
         this.startButton.addEventListener('click', (event) => {
             // hide menu and show game
             this.menuContainer.style.display = 'none';
             this.gameContainer.style.display = 'block';
+        })
+
+        this.resetButton.addEventListener('click',() =>{
+            this.reset()
+        })
+
+        
+        this.backButton.addEventListener('click',() =>{
+            this.menuContainer.style.display = 'block';
+            this.gameContainer.style.display = 'none';
         })
 
         this.timeElement.innerHTML = this.remainingSeconds;
@@ -35,16 +51,16 @@ class MixedGame {
         });
     }
 
+   
     nextWord(){
-        // Agafar duna llista de paraules etc
+        // Agafar d'una llista de paraules etc
         const random = Math.floor(Math.random() * this.wordsList.length);
         this.word = this.wordsList[random];
-        
-        
-
         // tornar a pintar la paraula al HTML
-        this.wordElement.innerHTML = this.word.word;
+        
+        this.wordElement.innerHTML = this.shuffleWord();
         // Actualitzar hint
+        this.hintElement.innerHTML = this.word.hint;
     }
 
     loseGame(){
@@ -80,21 +96,42 @@ class MixedGame {
 
     checkWord(){
         if(this.userInput.value.toLowerCase() === this.word.word.toLowerCase()){
-            alert("Excel-Ent!!!")
+            alert("Excelent!!!")
             this.resetCountdown();
             // Clear input!!!!
             this.userInput.value = '';
             this.nextWord();
-
-            // next word method
-            // reset countdown, display new word, etc (maibe clear and restart setInterval again, to avoid loosing time)
         } 
 
     }
 
+    shuffleWord(){
+        let word = this.word.word.split('')
+        let wordLength = word.length
+        let shuffledWord = ``
+        for (let i = 0; i < wordLength; i++){ 
+            const randomLetterIndex = Math.floor(Math.random() * word.length)
+            const [letter] = word.splice(randomLetterIndex, 1)
+            shuffledWord += letter          
+        }
+        return shuffledWord
+       
+    }
+
+    reset(){
+      if (this.isCountdownStarted){
+        this.resetCountdown()
+      }
+      this.userInput.value = '';
+
+      this.nextWord();
+    }
+
+    mainMenu(){
 
 
-
+        
+    }
 
 }
 
