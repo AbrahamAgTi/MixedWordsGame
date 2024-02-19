@@ -36,6 +36,8 @@ class MixedGame {
         this.backButton.addEventListener('click',() =>{
             this.menuContainer.style.display = 'block';
             this.gameContainer.style.display = 'none';
+            this.score =0;
+            this.scoreElement.innerHTML = this.score;
         })
 
         this.timeElement.innerHTML = this.remainingSeconds;
@@ -128,12 +130,13 @@ class MixedGame {
       if (this.isCountdownStarted){
         this.resetCountdown()
       }
+      this.score =0;
+      this.scoreElement.innerHTML = this.score;
       this.userInput.value = '';
       this.nextWord();
       
     }
-
-    
+  
 
 }
 
