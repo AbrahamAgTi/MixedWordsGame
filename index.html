@@ -11,10 +11,10 @@
 </head>
 <body>
     <div class="box-container">
-        <h2>Word mixed</h2>
+        <h1>Word mixed</h1>
         <div class = "content">
             <div id="menu-container">
-              <div>
+              <div class="start-button-ctr">
                 <button id="start-btn" class="button-30">Enter</button>
               </div>
             </div>
@@ -24,14 +24,16 @@
                     <p class = "hint"> Hint: <span></span></p>    
                     <p class = "timer"> Countdown: <span id="time">30</span></p>
                 </div>
-                <input id="user-input" type ="text" placeholder = "Enter a word">
-                    <div>
+                
+                
+                    <div class="input-btn">
+                        <input id="user-input" type ="text" placeholder = "Enter a word">
                         <button id="reset"> Reset </button>
                         <button id="main"> Back </button>
                         
                     </div>
                     <div>
-                        <p class="score">Score <span></span></p>
+                        <p >Score: <span id="score">0</span></p>
                     </div>
             </div>         
         </div>

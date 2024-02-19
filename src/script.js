@@ -1,7 +1,7 @@
 
 class MixedGame {
     constructor(words){ 
-        this.secondsPerWord = 5;
+        this.secondsPerWord = 30;
         this.remainingSeconds = this.secondsPerWord;
         this.score = 0;
         this.isCountdownStarted = false;
@@ -17,7 +17,7 @@ class MixedGame {
         this.menuContainer = document.getElementById('menu-container');
         this.gameContainer = document.getElementById('game-container');
         this.timeElement = document.getElementById('time');
-        this.scoreElement = document.getElementsByClassName('score')[0]
+        this.scoreElement = document.getElementById('score')
         this.backButton = document.getElementById('main')
 
     
@@ -61,12 +61,15 @@ class MixedGame {
         this.wordElement.innerHTML = this.shuffleWord();
         // Actualitzar hint
         this.hintElement.innerHTML = this.word.hint;
+        //update the score
+        
     }
 
     loseGame(){
         clearInterval(this.timeInterval);
         //this.isCountdownStarted = false;
         alert("You died!!!!!");
+        this.score = 0
     }
 
     startCountdown(){
@@ -97,10 +100,13 @@ class MixedGame {
     checkWord(){
         if(this.userInput.value.toLowerCase() === this.word.word.toLowerCase()){
             alert("Excelent!!!")
+            this.score++;
+            this.scoreElement.innerHTML = this.score;
             this.resetCountdown();
             // Clear input!!!!
             this.userInput.value = '';
             this.nextWord();
+            
         } 
 
     }
@@ -123,15 +129,11 @@ class MixedGame {
         this.resetCountdown()
       }
       this.userInput.value = '';
-
       this.nextWord();
+      
     }
 
-    mainMenu(){
-
-
-        
-    }
+    
 
 }
 
