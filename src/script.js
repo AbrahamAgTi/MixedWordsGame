@@ -26,6 +26,7 @@ class MixedGame {
             // hide menu and show game
             this.menuContainer.style.display = 'none';
             this.gameContainer.style.display = 'block';
+            this.userInput.value = "";
         })
 
         this.resetButton.addEventListener('click',() =>{
@@ -38,6 +39,7 @@ class MixedGame {
             this.gameContainer.style.display = 'none';
             this.score =0;
             this.scoreElement.innerHTML = this.score;
+            this.resetCountdown();
         })
 
         this.timeElement.innerHTML = this.remainingSeconds;
@@ -104,7 +106,7 @@ class MixedGame {
             alert("Excelent!!!")
             this.score++;
             this.scoreElement.innerHTML = this.score;
-            this.resetCountdown();
+            
             // Clear input!!!!
             this.userInput.value = '';
             this.nextWord();
@@ -127,14 +129,13 @@ class MixedGame {
     }
 
     reset(){
-      if (this.isCountdownStarted){
-        this.resetCountdown()
-      }
+      
       this.score =0;
       this.scoreElement.innerHTML = this.score;
       this.userInput.value = '';
       this.nextWord();
       
+            
     }
   
 
