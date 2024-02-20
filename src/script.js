@@ -6,7 +6,7 @@ class MixedGame {
         this.score = 0;
         this.isCountdownStarted = false;
         this.timeInterval = null;
-        this.word = {word: '', hint: ''};
+        this.word = {word: '', hint: '',category: ''};
         this.wordsList = words;
 
         this.startButton = document.getElementById('start-btn');
@@ -28,6 +28,11 @@ class MixedGame {
         this.easyButton = document.getElementById('easy');
         this.normalButton = document.getElementById('normal')
         this.hardButton = document.getElementById('hard')
+
+        //adding categories
+
+        
+        
 
         this.menuLevel.style.display = 'none'
 
