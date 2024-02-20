@@ -19,16 +19,51 @@ class MixedGame {
         this.timeElement = document.getElementById('time');
         this.scoreElement = document.getElementById('score')
         this.backButton = document.getElementById('main')
-        this.allButtons = document.querySelectorAll("button")
+        this.backButton2 = document.getElementById('mainMenu')
+        this.allButtons = document.querySelectorAll('button')
+        this.menuLevel =document.getElementById('levels')
+
+        //adding difficulties
+
+        this.easyButton = document.getElementById('easy');
+        this.normalButton = document.getElementById('normal')
+        this.hardButton = document.getElementById('hard')
+
+        this.menuLevel.style.display = 'none'
 
     
         // Add listener to start button
         this.startButton.addEventListener('click', (event) => {
             // hide menu and show game
             this.menuContainer.style.display = 'none';
-            this.gameContainer.style.display = 'block';
+            this.menuLevel.style.display = 'block'
+            this.gameContainer.style.display = 'none';
             this.userInput.value = "";
         })
+
+        this.easyButton.addEventListener('click',()=>{
+            this.gameContainer.style.display = 'block';
+            this.menuLevel.style.display = 'none';
+            this.timeElement.innerHTML = this.remainingSeconds;
+        })
+
+        this.normalButton.addEventListener('click',()=>{
+            this.gameContainer.style.display = 'block';
+            this.menuLevel.style.display = 'none';
+            this.remainingSeconds = 20;
+            this.timeElement.innerHTML = this.remainingSeconds;
+
+        })
+
+        this.hardButton.addEventListener('click',()=>{
+            this.gameContainer.style.display = 'block';
+            this.menuLevel.style.display = 'none';
+            this.remainingSeconds = 10;
+            this.timeElement.innerHTML = this.remainingSeconds;
+        })
+
+
+
 
         this.resetButton.addEventListener('click',() =>{
             this.reset()
@@ -40,9 +75,16 @@ class MixedGame {
         this.backButton.addEventListener('click',() =>{
             this.menuContainer.style.display = 'block';
             this.gameContainer.style.display = 'none';
+            this.menuLevel.style.display = 'none';
             this.score =0;
             this.scoreElement.innerHTML = this.score;
             this.resetCountdown();
+        })
+
+        this.backButton2.addEventListener('click',()=>{
+            this.menuContainer.style.display = 'block';
+            this.gameContainer.style.display = 'none';
+            this.menuLevel.style.display = 'none';
         })
 
         this.timeElement.innerHTML = this.remainingSeconds;
@@ -154,6 +196,11 @@ class MixedGame {
                 audio.play()
             })
         })
+
+    }
+
+    levels(){
+        
 
     }
   
