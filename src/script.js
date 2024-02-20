@@ -19,6 +19,7 @@ class MixedGame {
         this.timeElement = document.getElementById('time');
         this.scoreElement = document.getElementById('score')
         this.backButton = document.getElementById('main')
+        this.allButtons = document.querySelectorAll("button")
 
     
         // Add listener to start button
@@ -32,6 +33,8 @@ class MixedGame {
         this.resetButton.addEventListener('click',() =>{
             this.reset()
         })
+
+        this.allButtonsclickSound();
 
         
         this.backButton.addEventListener('click',() =>{
@@ -74,6 +77,9 @@ class MixedGame {
         //this.isCountdownStarted = false;
         alert("You died!!!!!");
         this.score = 0
+
+        var audio = new Audio('./assets/mixkit-cartoon-voice-laugh-343.wav');
+            audio.play()
     }
 
     startCountdown(){
@@ -106,6 +112,9 @@ class MixedGame {
             alert("Excelent!!!")
             this.score++;
             this.scoreElement.innerHTML = this.score;
+
+            var audio = new Audio('./assets/mixkit-positive-interface-beep-221.wav');
+            audio.play()
             
             // Clear input!!!!
             this.userInput.value = '';
@@ -136,6 +145,16 @@ class MixedGame {
       this.nextWord();
       
             
+    }
+
+    allButtonsclickSound(){
+        var audio = new Audio('./assets/mixkit-game-click-1114.wav');
+        this.allButtons.forEach(button => {
+            button.addEventListener("click",() =>{
+                audio.play()
+            })
+        })
+
     }
   
 
