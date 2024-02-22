@@ -122,7 +122,7 @@ class MixedGame {
     loseGame(){
         clearInterval(this.timeInterval);
         //this.isCountdownStarted = false;
-        alert("You died!!!!!");
+        alert("The game is over!");
         this.score = 0
 
         var audio = new Audio('./assets/mixkit-cartoon-voice-laugh-343.wav');
